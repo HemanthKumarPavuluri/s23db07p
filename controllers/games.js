@@ -1,7 +1,13 @@
-var Costume = require("../models/games");
-// List of all games
-exports.games_list = function (req, res) {
-  res.send("NOT IMPLEMENTED: Games list");
+var Games = require("../models/games");
+// List of all Costumes
+exports.games_list = async function (req, res) {
+  try {
+    theGames = await Games.find();
+    res.send(theGames);
+  } catch (err) {
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+  }
 };
 // for a specific games.
 exports.games_detail = function (req, res) {
