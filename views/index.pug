@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to my Channel, Please press the below button to do nothing.
+  button(type="button", class="btn btn-secondary" onclick = "goFaster()") Press me
+  div(id = "faster") <i> increase the speed </i>
+  script.
+    var mph = 20
+    var change = 1
+    function goFaster()
+    {
+      mph = mph + change
+      change = change + 1
+      document.getElementById('faster').innerHTML = `MPH ${mph} with change ${change}`;
+    }
