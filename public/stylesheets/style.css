@@ -4,5 +4,13 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.gamesAttr {
+  background-color: rgb(214, 104, 135);
+  width: 100px;
+  box-shadow: black;
+  box-shadow: 0 0 6px 4px rgb(0 0 0 / 12%), 0px 0px 9px 3px rgb(0 0 0 / 24%);
+  color: antiquewhite;
 }

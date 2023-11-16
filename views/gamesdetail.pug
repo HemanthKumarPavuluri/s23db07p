@@ -1,0 +1,20 @@
+extends layout
+block content
+    h1= title
+ 
+    - let gamesid = toShow._id
+    - let game_name = toShow.games_brand
+    - let player_count = toShow.player_count
+    - let ticket_price = toShow.ticket_price
+    div
+        div.row
+            div(class='gamesAttr mr-3') Games Id is: #{gamesid}
+            br
+        div.row
+            div(class='gamesAttr mr-3') Game Name is: #{game_name}
+            br
+        div.row
+            div(class='gamesAttr mr-3') Player Count is: #{player_count}
+            br
+        div.row
+            div(class='gamesAttr mr-3') Ticket Price is: #{ticket_price}
