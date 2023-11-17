@@ -1,35 +1,19 @@
 extends layout
-
+ 
 block content
   h1= title
   -
-    let results = [
-      {
-        "game_name": "Cricket",
-        "player_count": "11 players",
-        "ticket_price": 2000
-      },
-      {
-        "game_name": "Kabaddi",
-        "player_count": "7 players",
-        "ticket_price": 500
-      },
-      {
-        "game_name": "Kho-Kho",
-        "player_count": "9 players",
-        "ticket_price": 200
-      },                   
-    ]
+    let items  = results
   div(class= "container-fluid")
-    div(class = "row")
-      each item,index in results
-        div(class= "col-sm-2", onclick=`buy(${index})`) games: #{item.game_name}
-        div(class= "col-sm-2", onclick=`buy(${index})`) playerCount: #{item.player_count}
-        div(class= "col-sm-2", onclick=`buy(${index})`) ticketPrice: #{item.ticket_price}
-         br
+    div(class = "row m-1")
+      each item,index in items
+        - let destination = `dispatch(\"/resource/update?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.game_name}(#{item.player_count}) is #{item.ticket_price}
         br
-        
+        br
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
+       
   script.
-    function buy(itemNum){
-      alert(`You purchased item ${itemNum+1}`)
+    function dispatch(path){
+      window.location.href=path
     }
