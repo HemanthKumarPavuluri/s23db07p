@@ -5,12 +5,16 @@ const gamesSchema = mongoose.Schema({
     required: [true, "Games Name is required"],
   },
   player_count: {
-    type: String,
+    type: Number,
     required: true,
+    min:0,
+    max:100,
   },
   ticket_price: {
-    type: String,
+    type: Number,
     required: true,
+    min:0,
+    max:100,
   },
 });
 module.exports = mongoose.model("Games", gamesSchema);
